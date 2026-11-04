@@ -1,8 +1,7 @@
 const { randomInt } = require("crypto");
 
-const ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"; // base62
+const ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"; 
 
-// Random base62 string. crypto.randomInt gives unbiased, unpredictable characters.
 function generateCode(length) {
   let code = "";
   for (let i = 0; i < length; i++) {

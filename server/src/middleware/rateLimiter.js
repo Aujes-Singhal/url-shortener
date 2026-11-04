@@ -1,23 +1,10 @@
 const config = require("../config");
-const redis = require("../utils/redis");
 
-// Fixed-window limiter, per client IP.
-// Uses Redis when available (works across many servers), otherwise an in-memory Map.
 const memory = new Map();
+const redis = null;
 
 async function hit(key) {
   const { windowSeconds } = config.rateLimit;
-
-  if (redis) {
-    try {
-      const count = await redis.incr(key);
-      if (count === 1) await redis.expire(key, windowSeconds);
-      const ttl = await redis.ttl(key);
-      return { count, retryAfter: ttl > 0 ? ttl : windowSeconds };
-    } catch {
-      // If Redis is down, fall back to memory instead of blocking every user
-    }
-  }
 
   const now = Date.now();
   const entry = memory.get(key);

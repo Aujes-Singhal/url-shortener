@@ -35,9 +35,7 @@ export default function App() {
       <h1 className="title">Paste a long link.<br />Get a short one.</h1>
 
       <form className="form" onSubmit={onSubmit}>
-        {/* <label htmlFor="url" className="sr-only">Long URL</label> */}
         <input
-          id="url"
           type="text"
           inputMode="url"
           placeholder="https://example.com/a/very/long/path?with=params"
@@ -50,7 +48,8 @@ export default function App() {
         </button>
       </form>
 
-      <div aria-live="polite" className="status">
+
+      <div className="status">
         {error && <p className="error">{error}</p>}
 
         {result && (

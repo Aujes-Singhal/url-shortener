@@ -1,1 +1,0 @@
-Decision, Trade-off, Problem and fix, and Testing/performance note

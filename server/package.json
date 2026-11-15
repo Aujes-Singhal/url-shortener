@@ -1,13 +1,13 @@
 {
   "name": "snip-server",
   "version": "1.0.0",
-  "private": true,
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "node --watch src/index.js",
-    "start": "node src/index.js"
+    "dev": "node index.js"
   },
-  "engines": { "node": ">=18.11" },
+  "engines": {
+    "node": ">=18.11"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
